@@ -1,11 +1,15 @@
 // Classificacio.cpp
 #include "Classificacio.hpp"
 
+//*********************************************************
 // Constructors i assignació
+//*********************************************************
 
 Classificacio::Classificacio() : arrelTematica() {}
 
+//*********************************************************
 // Modificadors
+//*********************************************************
 
 void Classificacio::afegirArea(const string &area) {
     if (arrelTematica.isEmpty()) {
@@ -31,7 +35,21 @@ void Classificacio::classificarLlibre(LlibreE &llibre, const string &area) const
     }
 }
 
+void Classificacio::afegirAreaAlArbre(BinaryTree<string> &arbre, const string &area) {
+    if (arbre.isEmpty()) {
+        arbre = BinaryTree<string>(area, BinaryTree<string>(), BinaryTree<string>());
+    } else {
+        if (area < arbre.getRoot()) {
+            afegirAreaAlArbre(arbre.getLeft(), area);
+        } else {
+            afegirAreaAlArbre(arbre.getRight(), area);
+        }
+    }
+}
+
+//*********************************************************
 // Consultors
+//*********************************************************
 
 bool Classificacio::conteArea(const string &area) const {
     return conteAreaRec(arrelTematica, area);
