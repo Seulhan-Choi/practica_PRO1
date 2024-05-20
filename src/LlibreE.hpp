@@ -2,6 +2,8 @@
 #define LLIBREE_HPP
 #include "Data.hpp"
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 #define nat unsigned int
@@ -45,9 +47,30 @@ class LlibreE {
 		//*********************************************************
 	 
 	 
-		// ...
-		// AFEGIU ELS MÈTODES QUE CALGUIN
-		// ...
+		/* Pre: cert */
+        /* Post: modifica el dia de la data paràmetre implícit */
+        void setDia(int dia);
+
+        /* Pre: cert */
+        /* Post: modifica el mes de la data paràmetre implícit */
+        void setMes(int mes);
+
+        /* Pre: cert */
+        /* Post: modifica l'any de la data paràmetre implícit */
+        void setAny(int any);
+
+        /* Pre: cert */
+        /* Post: modifica el títol del llibre paràmetre implícit */
+        void setTitol(const string &titol);
+
+        /* Pre: cert */
+        /* Post: modifica l'àrea temàtica del llibre paràmetre implícit */
+        void setArea(const string &area);
+
+        /* Pre: cert */
+        /* Post: afegeix una paraula clau al llibre paràmetre implícit */
+        void afegirParaulaClau(const string &paraula);
+
 	  
 
 	    //*********************************************************
@@ -71,9 +94,9 @@ class LlibreE {
 		   llibre p.i. és posterior a la del llibre 'le' (true) o no ho és (false) */
 	    bool compare(const LlibreE &le) const;
 		
-		// ...
-		// AFEGIU ELS MÈTODES QUE CALGUIN
-		// ...
+		/* Pre: cert */
+        /* Post: el resultat són les paraules clau del llibre p.i. */
+        vector<string> consultar_paraulesClau() const;
 		
 		
 		//*********************************************************
@@ -81,17 +104,24 @@ class LlibreE {
 		//*********************************************************
 
 
-		// ...
-		// AFEGIU ELS MÈTODES QUE CALGUIN
-		// ...
+		/* Pre: estan preparats al canal estàndard d'entrada tres enters */
+        /* Post: la data 'd' passa a tenir els enters llegits del canal
+           estàndard d'entrada com a dia, mes i any, respectivament */        
+        friend istream& operator>>(istream &is, Data &d); 
+
+        /* Pre: cert */
+        /* Post: s'han escrit els atributs dia, mes i any de la data 'd'
+           al canal estàndard de sortida */
+        friend ostream& operator<<(ostream &os, const Data &d); 
+
 
 	  
 	private:
 
-	    // ...
-		// DONEU UNA REPRESENTACIÓ PER LA CLASSE
-		// ...
+	    string titol;
+        Data dataPublicacio;
+        string areaTematica;
+        vector<string> paraulesClau;
   
 };
 #endif
-
