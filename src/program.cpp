@@ -18,7 +18,7 @@ int main() {
 	
     string inst;
 	
-    while ((cin >> inst) and (inst != "fi")) {
+    while ((cin >> inst) && (inst != "fi")) {
 		
         // Tractar instrucció
 	}
