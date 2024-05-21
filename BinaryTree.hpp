@@ -242,7 +242,8 @@ public:
   
   //********************************************************* 
   bool search(const T &value) const {
-    if (isEmpty()) return false;
+	  
+	  if (isEmpty()) return false;
     if (root == value) return true;
     return (left != NULL && left->search(value)) || (right != NULL && right->search(value));
   }
@@ -658,7 +659,17 @@ void BinaryTree<T>::readVisualFormat(const vector<string> &v, BinaryTree<T> &t) 
 
 template<typename T>
 vector<string> BinaryTree<T>::generateVisualFormatRec(const BinaryTree<T> &t) {
-  n
+  if (t.isEmpty()) return vector<string> ();
+  string rootstring = value2string(t.getRoot());
+  int rootrelativepos = (int(rootstring.size())-1)/2;
+  vector<string> leftresult = generateVisualFormatRec(t.getLeft());
+  int leftrootpos = 0;
+  if (int(leftresult.size()) > 0)
+    leftrootpos = obtainRootPositionInString(leftresult[0]);
+  vector<string> rightresult = generateVisualFormatRec(t.getRight());
+  int rightrootpos = 0;
+  if (int(rightresult.size()) > 0)
+    rightrootpos = obtainRootPositionInString(rightresult[0]);
   vector<string> result;
   if (int(leftresult.size()) == 0 and int(rightresult.size()) == 0) {
     result.push_back(rootstring);

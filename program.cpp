@@ -18,8 +18,6 @@ int main() {
 	
 	// Processar instruccions
 	
-    string inst;
-	
     while ((cin >> inst) && (inst != "fi")) {
 		
         // Tractar instrucció

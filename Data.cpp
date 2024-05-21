@@ -1,24 +1,14 @@
-// Data.cpp
 #include "Data.hpp"
 
 // Constructors
+Data::Data() : dia(0), mes(0), any(0) {}
 
-Data::Data() : dia(0), mes(0), any(0) {
-    // Creates an empty date
-}
-
-Data::Data(int dia, int mes, int any) : dia(dia), mes(mes), any(any) {
-    // Creates a date with the given day, month, and year
-}
+Data::Data(int dia, int mes, int any) : dia(dia), mes(mes), any(any) {}
 
 // Destructor
-
-Data::~Data() {
-    // Default destructor
-}
+Data::~Data() {}
 
 // Consultors
-
 int Data::getDia() const {
     return dia;
 }
@@ -32,14 +22,12 @@ int Data::getAny() const {
 }
 
 bool Data::operator>(const Data &d) const {
-    if (any > d.any) return true;
-    if (any == d.any && mes > d.mes) return true;
-    if (any == d.any && mes == d.mes && dia > d.dia) return true;
-    return false;
+    if (any != d.any) return any > d.any;
+    if (mes != d.mes) return mes > d.mes;
+    return dia > d.dia;
 }
 
 // Lectura i escriptura
-
 istream& operator>>(istream &is, Data &d) {
     is >> d.dia >> d.mes >> d.any;
     return is;
