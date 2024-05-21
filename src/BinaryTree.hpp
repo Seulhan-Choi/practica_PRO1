@@ -242,9 +242,9 @@ public:
   
   //********************************************************* 
   bool search(const T &value) const {
-	  
-	// PROGRAMA AQUEST MÈTODE
-  
+    if (isEmpty()) return false;
+    if (root == value) return true;
+    return (left != NULL && left->search(value)) || (right != NULL && right->search(value));
   }
  
   //*********************************************************

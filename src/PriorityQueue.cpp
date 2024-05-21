@@ -72,8 +72,28 @@ void Queue<T>::push(const T &value) {
 template <typename T>
 void Queue<T>::remove(const T &value)
  {
-	// PROGRAMA AQUEST MÈTODE
+	if (first == NULL) return; // If the queue is empty, there's nothing to remove.
 
+    // Special case: if the first item is the one to remove
+    if (first->value == value) {
+        pop(); // Reuse the pop method to remove the first item
+        return;
+    }
+
+    // General case: traverse the list to find the item to remove
+    Item *current = first;
+    while (current->next != NULL && current->next->value != value) {
+        current = current->next;
+    }
+
+    // If we found the item, current->next is the one to remove
+    if (current->next != NULL) {
+        Item *toDelete = current->next;
+        current->next = current->next->next;
+        if (toDelete == last) last = current; // If the last item is removed, update last
+        delete toDelete;
+        _size--;
+	}
 }
 //*********************************************************
 

@@ -13,6 +13,8 @@ using namespace std;
 int main() {
 	
 	// Crear la plataforma
+    Plataforma plataforma;
+    string inst;
 	
 	// Processar instruccions
 	
@@ -21,7 +23,35 @@ int main() {
     while ((cin >> inst) && (inst != "fi")) {
 		
         // Tractar instrucció
-	}
+        if (inst == "alta llibre") {
+            string titol;
+            Data data;
+            int numParaules;
+            vector<string> paraulesClau;
+            cin >> titol >> data >> numParaules;
+            for (int i = 0; i < numParaules; ++i) {
+                string paraula;
+                cin >> paraula;
+                paraulesClau.push_back(paraula);
+            }
+            plataforma.altaLlibre(titol, data, paraulesClau);
+        } else if (inst == "baixa llibre") {
+            string titol;
+            cin >> titol;
+            plataforma.baixaLlibre(titol);
+        } else if (inst == "classifica llibre") {
+            plataforma.classificaLlibre();
+        } else if (inst == "classifica") {
+            plataforma.classifica();
+        } else if (inst == "mostra llibres") {
+            plataforma.mostraLlibres();
+        } else if (inst == "mostra llibres area") {
+            string area;
+            cin >> area;
+            plataforma.mostraLlibresArea(area);
+        } else if (inst == "llista pendents") {
+            plataforma.llistaPendents();
+        }
+    }
+    return 0;
 }
-
-
