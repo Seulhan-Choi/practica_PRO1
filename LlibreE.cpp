@@ -87,15 +87,3 @@ bool LlibreE::compare(const LlibreE &le) const {
 //*********************************************************
 // Lectura i escriptura
 //*********************************************************
-
-istream& operator>>(istream &is, Data &d) {
-    int dia, mes, any;
-    is >> dia >> mes >> any;
-    d = Data(dia, mes, any);
-    return is;
-}
-
-ostream& operator<<(ostream &os, const Data &d) {
-    os << d.getDia() << "/" << d.getMes() << "/" << d.getAny();
-    return os;
-}

@@ -51,7 +51,6 @@ public:
     void llistaPendents() const;
 
 private:
-    map<string, LlibreE> llibres; // Map of book titles to books
     Queue<LlibreE> pendents; // Priority queue of pending books to classify
     Classificacio classificacio; // Classification system
 

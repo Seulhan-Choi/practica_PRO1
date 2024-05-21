@@ -26,14 +26,3 @@ bool Data::operator>(const Data &d) const {
     if (mes != d.mes) return mes > d.mes;
     return dia > d.dia;
 }
-
-// Lectura i escriptura
-istream& operator>>(istream &is, Data &d) {
-    is >> d.dia >> d.mes >> d.any;
-    return is;
-}
-
-ostream& operator<<(ostream &os, const Data &d) {
-    os << d.dia << "/" << d.mes << "/" << d.any;
-    return os;
-}

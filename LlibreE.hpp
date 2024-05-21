@@ -90,16 +90,6 @@ public:
     //*********************************************************
     // Lectura i escriptura
     //*********************************************************
-    
-    /* Pre: estan preparats al canal estàndard d'entrada tres enters */
-    /* Post: la data 'd' passa a tenir els enters llegits del canal
-       estàndard d'entrada com a dia, mes i any, respectivament */        
-    friend istream& operator>>(istream &is, Data &d); 
-
-    /* Pre: cert */
-    /* Post: s'han escrit els atributs dia, mes i any de la data 'd'
-       al canal estàndard de sortida */
-    friend ostream& operator<<(ostream &os, const Data &d); 
 
 private:
     string titol;

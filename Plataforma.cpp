@@ -84,7 +84,7 @@ void Plataforma::mostraLlibresArea(const string &area) const {
 }
 
 void Plataforma::llistaPendents() const {
-    for (int i = 0; i < pendents.size(); ++i) {
+    /*for (int i = 0; i < pendents.size(); ++i) {
         const LlibreE &llibre = pendents[i];
         cout << llibre.consultar_titol() << " " << llibre.consultar_dataPub() << " ";
         vector<string> paraulesClau = llibre.consultar_paraulesClau();
@@ -93,5 +93,5 @@ void Plataforma::llistaPendents() const {
             cout << paraula << " ";
         }
         cout << llibre.consultar_area() << endl;
-    }
+    }*/
 }
